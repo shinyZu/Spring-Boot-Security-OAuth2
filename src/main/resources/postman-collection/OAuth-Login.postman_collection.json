@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "1c028dea-5e6d-4c35-93e9-a517b4098416",
+		"name": "OAuth-Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21404145"
+	},
+	"item": [
+		{
+			"name": "generateToken",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "oauth-client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "oauth-secret",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "susan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "susan123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "a76b882a-1a34-49b6-ae12-f07f9e6bdc99",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/user?access_token=aea25655-c0ea-41ff-941f-b35010c538e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"user"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "aea25655-c0ea-41ff-941f-b35010c538e1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jenny\",\n    \"password\": \"jenny123\",\n    \"role\": \"ROLE_EMPLOYEE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/user?access_token=aea25655-c0ea-41ff-941f-b35010c538e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"user"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "aea25655-c0ea-41ff-941f-b35010c538e1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/user/10?access_token=aea25655-c0ea-41ff-941f-b35010c538e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"user",
+						"10"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "aea25655-c0ea-41ff-941f-b35010c538e1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 6,\n    \"username\": \"williams\",\n    \"password\": \"william123\",\n    \"role\": \"ROLE_ADMIN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/user/6?access_token=c85e0c99-ae14-4410-88f1-31cc18028567",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"user",
+						"6"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "c85e0c99-ae14-4410-88f1-31cc18028567"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
