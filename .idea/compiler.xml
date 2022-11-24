@@ -13,4 +13,9 @@
       <module name="03_spring-boot-security-oauth2" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="03_spring-boot-security-oauth2" options="" />
+    </option>
+  </component>
 </project>
